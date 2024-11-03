@@ -1,0 +1,89 @@
+.edit-btn:hover {
+  background-color: #cceeff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.edit-btn {
+  background-color: #e0f7ff;
+  border-radius: 50px !important;
+  color: #0d6efd;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.close-btn {
+  background-color: #f0d5d7;
+  border-radius: 50px !important;
+  color: #cf4658;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.backgroundColor {
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(78 49 182),
+    rgb(162 91 205)
+  );
+}
+
+.fb_builder {
+  background-image: url("../../../assets/images/bitmap@3x.png");
+  background-size: cover;
+  // background-position: center;
+  background-repeat: no-repeat;
+  // padding: 20px;
+  width: 100%;
+  height: 40%;
+}
+
+.fb {
+  background-image: url("../../../assets/images/idea@2x.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  // width: 100%;
+  // height: 300px;
+  width: 268px;
+  height: 293px;
+  max-width: 305px;
+  max-height: 235px;
+}
+
+.submit-btn {
+  width: 100px;
+}
+
+
+
+/* Ensure that the container and elements scale appropriately */
+.fb_builder {
+  padding: 20px;
+}
+
+@media (max-width: 576px) {
+  .fb_builder {
+      padding: 10px;
+  }
+
+  img {
+      width: 30px; /* Adjust logo size for smaller screens */
+  }
+
+  h5 {
+      font-size: 1rem; /* Adjust text size for readability */
+  }
+}
+
+@media (max-width: 768px) {
+  .col-md-4 {
+      flex: 0 0 100%; /* Make column full width */
+      max-width: 100%;
+  }
+}

@@ -1,0 +1,73 @@
+<form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+    @for(section of formElements;track section.elements){
+    <ng-container>
+        <div class="row mb-3">
+            @for(element of section.elements;track element.label){
+            <ng-container>
+                @if(section.col_type === 'col-2'){
+                <div class="col ">
+                    <label for="{{element.label}}">{{ element.label }}</label>
+                    @if(element.type === 'text' || element.type === 'email' || element.type === 'phone'){
+                    <div class="input-with-icon">
+                        <input class="form-control" [type]="element.type" [required]="element.required"
+                            [formControlName]="element.label" [style]="{
+                                'border': 
+                                  (dynamicForm.get(element.label)?.invalid && 
+                                  !isEditFormValue && 
+                                  dynamicForm.get(element.label)?.touched) || 
+                                  (dynamicForm.get(element.label)?.invalid && 
+                                  !isEditFormValue && 
+                                  formSubmitted) 
+                                    ? '2px solid red' 
+                                    : ''
+                              }" />
+                        @if(isEditFormValue){
+                        <img src="assets/images/trash-empty-fontawesome_2@3x.png" alt="Trash Icon" width="20"
+                            height="20" (click)="onRemoveElement(element)" />
+                        }
+                    </div>
+                    @if( dynamicForm.get(element.label)?.invalid && !isEditFormValue &&
+                    dynamicForm.get(element.label)?.touched || dynamicForm.get(element.label)?.invalid &&
+                    !isEditFormValue &&
+                    formSubmitted ){
+                    <div class="text-danger">
+                        @if(dynamicForm.get(element.label)?.errors?.['required']){
+                        <small> {{ element.label }} is required.</small> }
+                    </div>}}
+                </div> }
+                @if(section.col_type === 'col-1'){
+                <div class="col">
+                    <label>{{ element.label }}</label>
+                    <div class="input-with-icon">
+                        <input class="form-control" [formControlName]="element.label" [type]="element.type "
+                            [required]="element.required" [style]="{
+                            'border': 
+                              (dynamicForm.get(element.label)?.invalid && 
+                              !isEditFormValue && 
+                              dynamicForm.get(element.label)?.touched) || 
+                              (dynamicForm.get(element.label)?.invalid && 
+                              !isEditFormValue && 
+                              formSubmitted) 
+                                ? '2px solid red'  : ''}" />
+                        @if(isEditFormValue){
+                        <img src="assets/images/trash-empty-fontawesome_2@3x.png" alt="Trash Icon" width="20"
+                            height="20" (click)="onRemoveElement(element)" /> }
+                    </div>
+                    @if( dynamicForm.get(element.label)?.invalid &&!isEditFormValue &&
+                    dynamicForm.get(element.label)?.touched || dynamicForm.get(element.label)?.invalid
+                    &&!isEditFormValue &&
+                    formSubmitted ){
+                    <div class="text-danger">
+                        @if(dynamicForm.get(element.label)?.errors?.['required']){
+                        <small>
+                            {{ element.label }} is required.
+                        </small> }
+                    </div> }
+                </div>}
+            </ng-container>}
+        </div>
+    </ng-container> }
+</form>
+@if(!isEditFormValue){
+<button type="submit" class="btn btn-primary submit-btn  " (click)="onSubmit()">Submit</button>
+}

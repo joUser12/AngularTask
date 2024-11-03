@@ -1,0 +1,53 @@
+.submit-btn {
+  width: 100px;
+}
+.input-group {
+  position: relative;
+}
+
+
+.input-container {
+    display: flex;
+    align-items: center; /* Align items vertically center */
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1; /* Make input take available space */
+}
+
+.trash-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px; /* Space between input and icon */
+}
+
+.trash-icon img {
+    width: 20px; /* Set icon size */
+    height: auto;
+}
+
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #f2f2f2; 
+  border-radius: 5px; 
+}
+
+.input-with-icon .form-control {
+  border: none; 
+  background-color: transparent; 
+  flex: 1;
+  padding-left: 10px;
+}
+
+.input-with-icon .icon {
+  margin-left: 8px; 
+  cursor: pointer; 
+}
+
